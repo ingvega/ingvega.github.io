@@ -70,12 +70,7 @@
         <div class="container mt-5 pt-3">
         <div id="mensaje" class="alert alert-danger alert-dismissible" style="display:none;"></div>
             <form id="frm" class="form-horizontal" method="post" role="form" runat="server">
-                    
-                    <asp:ScriptManager ID="sm1" runat="server">
-                        <Services>
-                            <asp:ServiceReference Path="~/webservices/wsCedula.asmx" />
-                        </Services>
-                    </asp:ScriptManager>
+
                 	<h1>Cédula de Registro del Equipo (ANEXO 1)</h1>
                     
                 	<div class="row">
@@ -92,7 +87,7 @@
                         <div class="row"><strong><span class="reqF2">*</span> Datos requeridos adicionalmente para finalizar el registro</strong></div>
                 	</div>
                     <nav>
-                        <div class="nav nav-tabs nav-fill justify-content-center" id="nav-tab" role="tablist">
+                        <div class="nav nav-tabs nav-fill justify-content-center" id="navCedula" role="tablist">
                             <a class="nav-item nav-link active" id="nav-datos-proy-tab" data-toggle="tab" href="#nav-datos-proy" role="tab" aria-controls="nav-datos-proy" aria-selected="true">Datos del proyecto</a>
                             <a class="nav-item nav-link" id="nav-equipo-nal-tab" data-toggle="tab" href="#nav-equipo-nal" role="tab" aria-controls="nav-equipo-nal" aria-selected="false">Registro del equipo nacional</a>
                             <a class="nav-item nav-link" id="nav-equipo-ext-tab" data-toggle="tab" href="#nav-equipo-ext" role="tab" aria-controls="nav-equipo-ext" aria-selected="false">Registro del equipo extranjero</a>
@@ -112,8 +107,11 @@
                                     <div class="form-group">
 						                <label for="txtTitulo" class="col-form-label"><span class="reqF1">*</span> Título del proyecto</label>
 						                <input type="text" class="col-lg-12 form-control" id="txtTitulo" placeholder="Título del proyecto">
+                                        <div class="valid-feedback">
+                                            <i class="fas fa-check-circle"></i>
+                                        </div>
                                         <div class="invalid-feedback">
-                                            El título del proyecto es un valor requerido, con una longitud entre 10 y 50 caracteres.
+                                            <i class="fas fa-exclamation-circle"></i> El título del proyecto es un dato requerido, con una longitud entre 10 y 50 caracteres.
                                         </div>
 				                    </div>
 
@@ -121,21 +119,45 @@
                                         <label class="col-form-label" for="cboCategoria"><span class="reqF2">*</span> Categoría</label>
                                         <select class="form-control" id="cboCategoria" name="cboCategoria" data-placeholder="Elige la Categoría">
                                         </select>
+                                        <div class="valid-feedback">
+                                            <i class="fas fa-check-circle"></i>
+                                        </div>
+                                        <div class="invalid-feedback">
+                                            <i class="fas fa-exclamation-circle"></i> La categoría es un dato requerido.
+                                        </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-form-label" for="cboMunicipio"><span class="reqF1">*</span> Municipio</label>
                                         <select class="form-control" id="cboMunicipio" name="cboMunicipio" data-placeholder="Elige el municipio">
                                         </select>
+                                        <div class="valid-feedback">
+                                            <i class="fas fa-check-circle"></i>
+                                        </div>
+                                        <div class="invalid-feedback">
+                                            <i class="fas fa-exclamation-circle"></i> El municipio un dato requerido, con una longitud entre 10 y 50 caracteres.
+                                        </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-form-label" for="cboInstitucionGto"><span class="reqF1">*</span> Institución del estado de guanajuato</label>
+                                        <label class="col-form-label" for="cboInstitucionGto"><span class="reqF1">*</span> Institución del estado de Guanajuato</label>
                                         <select class="form-control" id="cboInstitucionGto" name="cboInstitucionGto" data-placeholder="Elige la institución">
                                         </select>
+                                        <div class="valid-feedback">
+                                            <i class="fas fa-check-circle"></i>
+                                        </div>
+                                        <div class="invalid-feedback">
+                                            <i class="fas fa-exclamation-circle"></i> La institución del estado es un dato requerido.
+                                        </div>
                                     </div>
 
                                     <div class="form-group">
                                         <label class="col col-form-label" for="txtDescripcion"><span class="reqF2">*</span> Descripción (máximo media cuartilla)</label>
                                         <textarea class="form-control" id="txtDescripcion" rows="10" placeholder="Descripción breve del Proyecto"></textarea>
+                                        <div class="valid-feedback">
+                                            <i class="fas fa-check-circle"></i>
+                                        </div>
+                                        <div class="invalid-feedback">
+                                            <i class="fas fa-exclamation-circle"></i> La descripción del proyecto es un dato requerido que debe cumplir con una longitud máxima de media cuartilla.
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -178,7 +200,7 @@
 			  					        </div>
 							        </div>
 							        <div class="card">
-			  					        <div class="card-header font-weight-bold ">Alumno 1</div>
+			  					        <div class="card-header font-weight-bold ">Estudiante 1</div>
 		  						        <div class="card-body">
 		  							        <div class="row">
 			  							        <div class="form-group col-lg-6 row">
@@ -218,7 +240,7 @@
 							        </div>
 
 							        <div class="card">
-			  					        <div class="card-header font-weight-bold ">Alumno 2</div>
+			  					        <div class="card-header font-weight-bold ">Estudiante 2</div>
 		  						        <div class="card-body">
 		  							        <div class="row">
 			  							        <div class="form-group col-lg-6 row">
@@ -258,7 +280,7 @@
 							        </div>
 
 							        <div class="card">
-			  					        <div class="card-header font-weight-bold ">Alumno 3</div>
+			  					        <div class="card-header font-weight-bold ">Estudiante 3</div>
 		  						        <div class="card-body">
 		  							        <div class="row">
 			  							        <div class="form-group col-lg-6 row">
@@ -301,7 +323,7 @@
 							          <div class="card">
 
 							            <div class="card-header font-weight-bold" role="tab" id="hdAccAlum4" style="padding: .5rem 1.25rem;">
-							      	        Alumno 4  	
+							      	        Estudiante 4  	
 							                <a class="btn btn-info desplegar" data-toggle="collapse" data-parent="#accAlum4" href="#secAlum4" aria-expanded="true" aria-controls="collapseOne">
 							                  <i class="fas fa-caret-down fa-lg" aria-hidden="true"></i>
 							                </a>
@@ -352,7 +374,7 @@
 						  	        <div id="accAlum5" role="tablist" aria-multiselectable="true">
 							          <div class="card">
 							            <div class="card-header font-weight-bold" role="tab" id="hdAccAlum5" style="padding: .5rem 1.25rem;">
-							      	        <span>Alumno 5</span>
+							      	        <span>Estudiante 5</span>
 							                <a class="btn btn-info desplegar" data-toggle="collapse" data-parent="#accAlum5" href="#secAlum5" aria-expanded="true" aria-controls="collapseOne">
 							                  <i class="fas fa-caret-down fa-lg" aria-hidden="true"></i>
 							                </a>
@@ -405,7 +427,6 @@
                         
                         <div class="tab-pane fade" id="nav-equipo-ext" role="tabpanel" aria-labelledby="nav-equipo-ext-tab">
                             <div class="card">
-                                
                                 <div class="card-body">
                                     <div class="form-group">
                                         <label class="col-form-label" for="cboPais"><span class="reqF2">*</span> País</label>
@@ -452,7 +473,7 @@
 			  					        </div>
 							        </div>
 							        <div class="card">
-			  					        <div class="card-header font-weight-bold ">Alumno 1</div>
+			  					        <div class="card-header font-weight-bold ">Estudiante 1</div>
 		  						        <div class="card-body">
 		  							        <div class="row">
 			  							        <div class="form-group col-lg-6 row">
@@ -475,12 +496,6 @@
 									                <input type="email" class="form-control" id="txtEmailAluExt1" placeholder="Email">
 									              </div>
 									            </div>
-									            <div class="form-group col-lg-6 row">
-									              <label for="txtSemCuatAluExt1" class="col-lg-6 col-form-label"><span class="reqF2">*</span> Semestre/Cuatrimestre</label>
-									              <div class="col-lg-6">
-									                <select class="form-control semcuat" id="cboSemCuatAluExt1" data-placeholder="Semestre/Cuatrimestre"></select>
-									              </div>
-									            </div>
 								            </div>
 								            <div class="form-group row">
 								              <label for="txtCarAluExt1" class="col-lg-2 col-form-label"><span class="reqF2">*</span> Carrera</label>
@@ -494,7 +509,7 @@
 							          <div class="card">
 
 							            <div class="card-header font-weight-bold" role="tab" id="hdAccAlum2" style="padding: .5rem 1.25rem;">
-							      	        Alumno 2  	
+							      	        Estudiante 2  	
 							                <a class="btn btn-info desplegar" data-toggle="collapse" data-parent="#accAlum2" href="#secAlum2Ext" aria-expanded="true" aria-controls="collapseOne">
 							                  <i class="fas fa-caret-down fa-lg" aria-hidden="true"></i>
 							                </a>
@@ -523,12 +538,6 @@
 									                <input type="email" class="form-control" id="txtEmailAluExt2" placeholder="Email">
 									              </div>
 									            </div>
-									            <div class="form-group col-lg-6 row">
-									              <label for="txtSemCuatAluExt2" class="col-lg-6 col-form-label">Semestre/Cuatrimestre</label>
-									              <div class="col-lg-6">
-									                <select class="form-control semcuat" id="cboSemCuatAluExt2" data-placeholder="Semestre/Cuatrimestre"></select>
-									              </div>
-									            </div>
 								            </div>
 								            <div class="form-group row">
 								              <label for="txtCarAluExt2" class="col-lg-2 col-form-label">Carrera</label>
@@ -544,7 +553,7 @@
 						  	        <div id="accAlum3" role="tablist" aria-multiselectable="true">
 							          <div class="card">
 							            <div class="card-header font-weight-bold" role="tab" id="hdAccAlum3" style="padding: .5rem 1.25rem;">
-							      	        <span>Alumno 3</span>
+							      	        <span>Estudiante 3</span>
 							                <a class="btn btn-info desplegar" data-toggle="collapse" data-parent="#accAlum3" href="#secAlum3Ext" aria-expanded="true" aria-controls="collapseOne">
 							                  <i class="fas fa-caret-down fa-lg" aria-hidden="true"></i>
 							                </a>
@@ -571,12 +580,6 @@
 									              <label for="txtEmailAluExt3" class="col-lg-4 col-form-label">Email</label>
 									              <div class="col-lg-8">
 									                <input type="email" class="form-control" id="txtEmailAluExt3" placeholder="Email">
-									              </div>
-									            </div>
-									            <div class="form-group col-lg-6 row">
-									              <label for="txtSemCuatAluExt3" class="col-lg-6 col-form-label">Semestre/Cuatrimestre</label>
-									              <div class="col-lg-6">
-									                <select class="form-control semcuat" id="cboSemCuatAluExt3" data-placeholder="Semestre/Cuatrimestre"></select>
 									              </div>
 									            </div>
 								            </div>
